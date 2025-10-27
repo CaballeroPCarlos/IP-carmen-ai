@@ -1,0 +1,118 @@
+/* Estilos del index.js */
+
+.pag {
+    display: flex;
+}
+
+.main {
+    display: flex;
+    padding: 40px 120px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.encabezado {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo {
+    border-radius: 5px;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+}
+
+.intro h2 {
+    color: #106efc;
+}
+
+/* Estilos de logica.js */
+
+.envio {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.envio form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* necesario para que el small absolute se posicione dentro */
+}
+
+.box textarea {
+    padding: 13px;
+    /* Añade espacio interno */
+    border: 2px solid transparent;
+    border-radius: 5px;
+    resize: none;
+    /* Evita que el usuario pueda cambiar el tamaña del textarea. */
+    font-size: 0.9rem;
+}
+
+.box small {
+    position: absolute;
+    /* Para colocarlo donde más convenga */
+    bottom: 10px;
+    right: 15px;
+    /* Posición: esquina inferior derecha */
+    pointer-events: none;
+    /* Para que no sea clicleable */
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.envio button {
+    padding: 8px 13px;
+    background-color: #106efc;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    /* Cambia el cursor a una mano al pasar sobre el botón. */
+    max-width: 150px;
+}
+
+.envio button:hover {
+    border: 2px solid #106efc;
+    background-color: #3b89ff;
+}
+
+.response {
+    margin: 0px 60px;
+    min-width: 198px;
+    max-width: 598px;
+    background-color: #b6e0f2;
+    padding: 15px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    font-size: 1rem;
+    justify-content: left;
+    border: 2px solid #106efc;
+}
+
+@media screen and (max-width: 600px) {
+    .main {
+        padding: 40px 40px;
+    }
+
+    .response {
+        margin: 0px 0px;
+    }
+}
