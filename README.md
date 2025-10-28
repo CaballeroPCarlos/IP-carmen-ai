@@ -16,6 +16,7 @@
     - [Estilos](#estilos)
     - [Variables](#variables)
     - [Componentes](#componentes)
+  - [Uso de Prisma](#uso-de-prisma)
 
 # Te acompaño a Crecer: Fase de Integración
 
@@ -248,3 +249,10 @@ Dentro de una pestaña se pueden mostrar otras pestañas localizadas en otra car
    - `<Logica />`
 
 > PD: Los estilos del archivo que lo invoca le afecta, aunque no sé hasta que punto.
+
+## Uso de Prisma
+
+No tengo ningun ejemplo especifico, así que les recomiendo revisar estos dos repositorias que hice con anterioridad:
+
+- [AccesoIoT](https://github.com/CaballeroPCarlos/acceso-iot)
+- [Next-Prueba](https://github.com/CaballeroPCarlos/next-prueba)

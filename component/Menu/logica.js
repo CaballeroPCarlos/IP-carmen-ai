@@ -45,9 +45,12 @@ export default function Logica() {
                             maxLength={300}
                             required
                         ></textarea>
+                        
                         <small>
                             {contador}/300
-                        </small></div>
+                        </small>
+                    </div>
+
                     <button
                         type="submit"
                         disabled={enviando}
@@ -55,6 +58,7 @@ export default function Logica() {
                         {enviando ? "Procesando..." : "Enviar"}
                     </button>
                 </form>
+
                 <div
                     id="response"
                     className={style.response}
