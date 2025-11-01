@@ -15,15 +15,15 @@ export default function Toggle({ ocultarModulo }) {
             {/* Botón de apertura/cierre */}
             <button
                 onClick={togglePanel}
-                className={`${style.panelBtn} ${isOpen ? style.open : ""}`}
+                className={`${style.panelBtn} ${style.btnPrimario} ${isOpen ? style.open : ""}`}
             >
                 {isOpen ? "←" : "→"}
             </button>
 
             <div
-                className={`${style.sidePanel} ${isOpen ? style.open : ""}`}
+                className={`${style.sidePanel} ${style.cajaAzul} ${isOpen ? style.open : ""}`}
             >
-                <h2>Módulos disponibles</h2>
+                <h2 className={style.colorH2}>Módulos disponibles</h2>
 
                 <div
                     hidden={ocultarModulo === "menu"}

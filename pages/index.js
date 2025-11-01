@@ -15,7 +15,9 @@ export default function Home() {
       </Head>
       <div className={style.pag}>
         <Toggle ocultarModulo={"menu"} />
-        <main className={style.main}>
+        <main
+          className={`${style.main} ${style.columnaFlex}`}
+        >
           <div className={style.encabezado}>
             <div>
               <Image
@@ -27,7 +29,7 @@ export default function Home() {
               />
             </div>
             <div className={style.intro}>
-              <h2>
+              <h2 className={style.colorH2}>
                 Chat con Carmen-AI
               </h2>
               <p>

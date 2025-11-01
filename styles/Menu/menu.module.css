@@ -1,14 +1,59 @@
-/* Estilos del index.js */
+/* === Estilos Generales === */
+
+/* Color para los <h2> */
+.colorH2 {
+    color: #106efc;
+}
+
+/* Botones principales */
+.btnPrimario {
+    padding: 8px 13px;
+    background-color: #106efc;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, border 0.3s;
+    max-width: 150px;
+}
+
+.btnPrimario:hover {
+    border: 2px solid #106efc;
+    background-color: #3b89ff;
+}
+
+/* Contenedores flexibles en columna */
+.columnaFlex {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Bloques con fondo y borde azul */
+.cajaAzul {
+    background-color: #b6e0f2;
+    border: 2px solid #106efc;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+/* Texto informativo pequeño */
+.textoInfo {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* === Estilos del index.js === */
 
 .pag {
     display: flex;
 }
 
 .main {
-    display: flex;
     padding: 40px 120px;
-    flex-direction: column;
-    gap: 15px;
+    width: 100%;
 }
 
 .encabezado {
@@ -29,117 +74,105 @@
     justify-content: center;
 }
 
-.intro h2 {
-    color: #106efc;
+/* === Estilos de logica.js === */
+
+.cuerpo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* Estilos de logica.js */
-
-.envio {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.cuerpo > * {
+    box-sizing: border-box;
 }
 
-.envio form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+/* Proporción 2:1 */
+.cuerpo > :first-child {
+    flex: 2 1 0;
+}
+
+.cuerpo > :nth-child(2) {
+    flex: 1 1 0;
 }
 
 .box {
     display: flex;
     flex-direction: column;
     position: relative;
-    /* necesario para que el small absolute se posicione dentro */
 }
 
 .box textarea {
     padding: 13px;
-    /* Añade espacio interno */
     border: 2px solid transparent;
     border-radius: 5px;
     resize: none;
-    /* Evita que el usuario pueda cambiar el tamaña del textarea. */
     font-size: 0.9rem;
 }
 
 .box small {
     position: absolute;
-    /* Para colocarlo donde más convenga */
     bottom: 10px;
     right: 15px;
-    /* Posición: esquina inferior derecha */
     pointer-events: none;
-    /* Para que no sea clicleable */
-    font-size: 0.8rem;
-    color: #6c757d;
-}
-
-.envio button {
-    padding: 8px 13px;
-    background-color: #106efc;
-    border: 2px solid transparent;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    /* Cambia el cursor a una mano al pasar sobre el botón. */
-    max-width: 150px;
-}
-
-.envio button:hover {
-    border: 2px solid #106efc;
-    background-color: #3b89ff;
 }
 
 .response {
     margin: 0px 60px;
     min-width: 198px;
     max-width: 598px;
-    background-color: #b6e0f2;
-    padding: 15px;
-    border-radius: 5px;
     white-space: pre-wrap;
     font-size: 1rem;
     justify-content: left;
-    border: 2px solid #106efc;
+}
+
+.response ul {
+    padding: 0px 15px;
 }
 
 @media screen and (max-width: 600px) {
     .main {
         padding: 40px 40px;
     }
-
     .response {
         margin: 0px 0px;
     }
 }
 
-/* Estilos de toggle.js */
+/* Estilos de recomendaciones.js */
+
+.recomendado {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+
+.recomendado a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* === Estilos de toggle.js === */
 
 .sidePanel {
     display: flex;
     flex-direction: column;
-    /* Centrar los elementos internos */
     position: fixed;
     overflow-y: auto;
-    /* Poder scrollear dentro del submenú */
     top: 0;
     left: 0;
-    /* Mantener el Panel en la esquina superior izquierda */
     width: 218px;
     height: 100%;
-    border: 2px solid #106efc;
-    background-color: #b6e0f2;
     border-radius: 5px;
     padding: 1rem;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     gap: 15px;
     z-index: 1020;
-    /* Se sobrepone al Botón para mantener su lado recto */
     text-align: center;
 }
 
@@ -147,14 +180,10 @@
     transform: translateX(0);
 }
 
-.sidePanel h2{
-    color: #106efc;
-}
-
-.sidePanel a{
+.sidePanel a {
     display: flex;
-    flex-direction: column; /* columna para que la imagen quede arriba y el texto abajo */
-    align-items: center;    /* centra horizontalmente la imagen y el texto */
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
@@ -164,27 +193,11 @@
     left: -3px;
     transform: translateX(0);
     transition: transform 0.3s ease;
-    padding: 5px 5px;
-    background-color: #106efc;
-    border: 2px solid transparent;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    /* Cambia el cursor a una mano al pasar sobre el botón. */
-    max-width: 150px;
     z-index: 1010;
-    /* Se sobrepone al Overlay */
 }
 
 .panelBtn.open {
     transform: translateX(218px);
-}
-
-.panelBtn:hover {
-    border: 2px solid #106efc;
-    background-color: #3b89ff;
 }
 
 .overlay {
@@ -195,5 +208,4 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 1000;
-    /* Se sobrepone al Menú */
 }

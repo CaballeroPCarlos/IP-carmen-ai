@@ -17,4 +17,5 @@ Evalúa si el mensaje se relaciona con uno de estos módulos y sus descripciones
 - Añade el nombre del módulo precedido por "### " al final si aplica.
 - Si no aplica ninguno, responde normalmente.
 - Si te preguntan quién eres, responde que eres Carmen-AI.
+- Si te preguntan por el IMC, limitate a recomendar el modulo correspondiente.
 `;
