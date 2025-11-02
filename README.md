@@ -202,8 +202,8 @@ A continuación se muestra cómo **importar, usar, combinar y condicionar estilo
    import styleMenu from "@/styles/Menu/menu.module.css";
    ```
 
-   > **Cómo se usa:** se importa el archivo `.module.css` con un alias (por convención, `style` o `styles`).
-   > **Por qué:** los CSS Modules encapsulan las clases dentro del archivo, generando nombres únicos a nivel de compilación (por ejemplo, `menu_envio__a1b2c`). Esto evita que los estilos de un componente afecten a otros.
+   > **Cómo se usa:** se importa el archivo `.module.css` con un alias (por convención, `style` o `styles`).  
+   > **Por qué:** los CSS Modules encapsulan las clases dentro del archivo, generando nombres únicos a nivel de compilación (por ejemplo, `menu_envio__a1b2c`). Esto evita que los estilos de un componente afecten a otros.  
    > **Nota:** se recomienda usar la ruta absoluta `@/` para mantener ordenadas las importaciones, especialmente en proyectos grandes.
 
 2. **Aplicación de estilos en JSX**
@@ -213,7 +213,7 @@ A continuación se muestra cómo **importar, usar, combinar y condicionar estilo
    <div className={style.envio}></div>
    ```
 
-   > **Por qué:** en React, `class` no puede usarse directamente (es una palabra reservada de JavaScript), por eso se usa `className`.
+   > **Por qué:** en React, `class` no puede usarse directamente (es una palabra reservada de JavaScript), por eso se usa `className`.  
    > Este método permite vincular directamente la clase definida en el archivo CSS al elemento HTML.
 
 3. **Combinación de múltiples clases**
@@ -223,7 +223,7 @@ A continuación se muestra cómo **importar, usar, combinar y condicionar estilo
    <div className={`${style.box} ${style.textoInfo}`}></div>
    ```
 
-   > **Por qué:** esto permite reutilizar estilos en conjunto sin crear clases nuevas para cada combinación posible.
+   > **Por qué:** esto permite reutilizar estilos en conjunto sin crear clases nuevas para cada combinación posible.  
    > También se puede emplear la librería `clsx` o `classnames` para manejar estas combinaciones de forma más limpia, pero no es obligatorio.
 
 4. **Condicionales en las clases**
@@ -233,7 +233,7 @@ A continuación se muestra cómo **importar, usar, combinar y condicionar estilo
    <div className={`${style.sidePanel} ${style.cajaAzul} ${isOpen ? style.open : ""}`}></div>
    ```
 
-   > **Cómo se usa:** la expresión ternaria `${isOpen ? style.open : ""}` agrega la clase `open` solo si la variable `isOpen` es `true`.
+   > **Cómo se usa:** la expresión ternaria `${isOpen ? style.open : ""}` agrega la clase `open` solo si la variable `isOpen` es `true`.  
    > **Por qué:** esto permite crear animaciones o transiciones de apertura/cierre, temas oscuros, o cualquier cambio visual dependiente del estado del componente.
 
 5. **Definición de clases en el archivo CSS**
@@ -247,7 +247,7 @@ A continuación se muestra cómo **importar, usar, combinar y condicionar estilo
    }
    ```
 
-   > **Por qué:** la sintaxis es idéntica a la de CSS estándar, lo que facilita la migración desde proyectos HTML o React antiguos.
+   > **Por qué:** la sintaxis es idéntica a la de CSS estándar, lo que facilita la migración desde proyectos HTML o React antiguos.  
    > Cada clase se exporta automáticamente como una propiedad del objeto `style` importado en el componente.
 
 ---
@@ -289,7 +289,7 @@ En React, las variables de estado (`state`) son la base para construir component
    const [moduloReco, setModuloReco] = useState([true, true, true, true, true]);
    ```
 
-   > **Cómo y por qué:** cada par `[valor, setValor]` define una variable y una función que actualiza su contenido.
+   > **Cómo y por qué:** cada par `[valor, setValor]` define una variable y una función que actualiza su contenido.  
    > Por ejemplo, `setUserInput` cambia el texto que el usuario escribe, y `setModuloReco` gestiona qué módulos se muestran u ocultan. Cuando se actualiza un estado, React re-renderiza el componente automáticamente.
 
 3. **Inicialización automática con `useEffect`**
