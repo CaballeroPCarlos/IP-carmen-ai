@@ -1,5 +1,5 @@
 import style from "@/styles/Menu/menu.module.css"
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { saludos } from "./saludos";
 import dynamic from "next/dynamic";
 import { marked } from "marked";
@@ -13,6 +13,9 @@ export default function Logica() {
     const [respuesta, setRespuesta] = useState("")
 
     const [moduloReco, setModuloReco] = useState([true, true, true, true, true]);
+
+    // Referencia para hacer foco en la respuesta tras enviar
+    const respuestaRef = useRef(null);
 
     // useEffect(() => {...}, []);
     // Para que se cargue un saludo aleatorio solo una vez al montar el componente (cargue la página).
@@ -30,6 +33,7 @@ export default function Logica() {
 
     async function EnviarMensaje(event) {
         event.preventDefault(); // ← evita recarga
+
         setEnviando(true);
         try {
             const res = await fetch("/api/Menu/envio", {
@@ -42,6 +46,11 @@ export default function Logica() {
 
             setRespuesta(marked.parse(clearTags(data.reply)));
             // Se convierte la respuesta filtrada a formato HTML desde Markdown
+
+            // Enfocar la respuesta para accesibilidad
+            if (respuestaRef.current) {
+                respuestaRef.current.focus();
+            }
 
             setUserInput("");
         } catch (error) {
@@ -103,6 +112,7 @@ export default function Logica() {
                         className={style.btnPrimario}
                         type="submit"
                         disabled={enviando}
+                        aria-busy={enviando}
                     >
                         {enviando ? "Procesando..." : "Enviar"}
                     </button>
@@ -110,6 +120,9 @@ export default function Logica() {
 
                 <div
                     className={`${style.response} ${style.cajaAzul}`}
+                    role="region"
+                    tabIndex={0}
+                    ref={respuestaRef}
                     dangerouslySetInnerHTML={{ __html: respuesta }}
                 // Inserta contenido HTML directamente en el elemento
                 // (útil para mostrar texto con formato, como Markdown convertido a HTML).
