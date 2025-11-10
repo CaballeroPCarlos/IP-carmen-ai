@@ -17,6 +17,8 @@ El objetivo es integrar de forma adecuada los módulos propuestos:
 - [Lineamientos Visuales](/docs/2-lineamientos.md)
 - [Sistema Escalable](/docs/3-Escalable.md)
 - [Estándar de Accesibilidad](/docs/4-Accesibiliad.md)
+- [Diagramas Técnicos](/docs/5-Diagramas.md)
+- [Lineamientos Éticos](/docs/6-etica.md)
 
 ---
 

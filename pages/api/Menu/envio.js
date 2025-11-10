@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     const { mensaje } = req.body;
 
     if (!mensaje) {
-        return res.status(405).json({ error: "Sin solicitud" });
+        return res.status(400).json({ error: "Solicitud inválida: falta 'mensaje'." });
     }
 
     // Lista de llaves desde tu .env.local

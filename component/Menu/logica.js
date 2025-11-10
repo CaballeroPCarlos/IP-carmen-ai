@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { saludos } from "./saludos";
 import dynamic from "next/dynamic";
 import { marked } from "marked";
+import DOMPurify from "dompurify";
 
 const Recomendaciones = dynamic(() => import("@/component/Menu/recomendaciones"));
 
@@ -25,6 +26,13 @@ export default function Logica() {
         setRespuesta(saludoAleatorio);
     }, []);
 
+    useEffect(() => {
+        // Enfocar la respuesta para accesibilidad
+        if (respuestaRef.current) {
+            respuestaRef.current.focus();
+        }
+    }, [respuesta]);
+
     function actualizarContador(e) {
         setContador(e.target.value.length);
     }
@@ -44,15 +52,16 @@ export default function Logica() {
             const data = await res.json();
             verificarMensaje(data.reply);
 
-            setRespuesta(marked.parse(clearTags(data.reply)));
+            let html = clearTags(data.reply);
+
+            html = marked.parse(html);
             // Se convierte la respuesta filtrada a formato HTML desde Markdown
 
-            // Enfocar la respuesta para accesibilidad
-            if (respuestaRef.current) {
-                respuestaRef.current.focus();
-            }
+            setRespuesta(DOMPurify.sanitize(html));
+            // Se sanitiza el HTML resultante por seguridad
 
             setUserInput("");
+            setContador(0);
         } catch (error) {
             setRespuesta("Error en el servidor.");
         } finally {
@@ -61,12 +70,14 @@ export default function Logica() {
     }
 
     function verificarMensaje(respuesta) {
-        const r = respuesta.toLowerCase();
-        actuReco(0, !r.includes("### autoayudag2"));
-        actuReco(1, !r.includes("### autoayudag5"));
-        actuReco(2, !(r.includes("### nutrición") || r.includes("### nutricion")));
-        actuReco(3, !r.includes("### coach laboral"));
-        actuReco(4, !r.includes("### crianza"));
+        const etiquetas = respuesta.match(/^###\s*(.+)$/gmi) || [];
+        const texto = etiquetas.join(" ").toLowerCase();
+
+        actuReco(0, !texto.includes("autoayudag2"));
+        actuReco(1, !texto.includes("autoayudag5"));
+        actuReco(2, !(texto.includes("nutrición") || texto.includes("nutricion")));
+        actuReco(3, !texto.includes("coach laboral"));
+        actuReco(4, !texto.includes("crianza"));
     }
 
     function actuReco(position, valor) {
