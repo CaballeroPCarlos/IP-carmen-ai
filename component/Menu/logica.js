@@ -50,6 +50,13 @@ export default function Logica() {
                 body: JSON.stringify({ mensaje: userInput })
             });
             const data = await res.json();
+
+            // --- Verificar si hay un campo 'error' y registrarlo
+            if (data.error) {
+                console.warn("Error detectado en la respuesta:", data.error);
+                // Aquí se podría enviar a un log seguro o sistema de monitoreo
+            }
+
             verificarMensaje(data.reply);
 
             let html = clearTags(data.reply);

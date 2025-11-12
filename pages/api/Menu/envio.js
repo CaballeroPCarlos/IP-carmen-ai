@@ -5,10 +5,32 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: "Método no permitido" });
     }
 
-    const { mensaje } = req.body;
+    const { mensaje, ...otrosCampos } = req.body;
+
+    // --- Garantizar que SOLO se envíe "mensaje"
+    if (Object.keys(otrosCampos).length > 0) {
+        return res.status(400).json({
+            error: "Solo se permite el campo 'mensaje'."
+        });
+    }
 
     if (!mensaje) {
         return res.status(400).json({ error: "Solicitud inválida: falta 'mensaje'." });
+    }
+
+    // --- Validación estricta del mensaje
+    if (typeof mensaje !== "string") {
+        return res.status(400).json({ error: "El mensaje debe ser texto." });
+    }
+
+    if (mensaje.trim().length === 0) {
+        return res.status(400).json({ error: "El mensaje no puede estar vacío." });
+    }
+
+    if (mensaje.length > 300) {
+        return res.status(400).json({
+            error: "El mensaje excede el límite permitido (300 caracteres)."
+        });
     }
 
     // Lista de llaves desde tu .env.local
@@ -55,7 +77,7 @@ export default async function handler(req, res) {
     if (!respuestaFinal) {
         return res.status(500).json({
             error: "Todas las claves fallaron o no hubo respuesta.",
-            reply: "Todas fallaron."
+            reply: "Sin respuesta."
         });
     }
 

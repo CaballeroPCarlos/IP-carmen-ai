@@ -19,6 +19,7 @@ El objetivo es integrar de forma adecuada los módulos propuestos:
 - [Estándar de Accesibilidad](/docs/4-Accesibiliad.md)
 - [Diagramas Técnicos](/docs/5-Diagramas.md)
 - [Lineamientos Éticos](/docs/6-etica.md)
+- [Integración segura](/docs//7-seguridad.md)
 
 ---
 
@@ -28,3 +29,4 @@ El objetivo es integrar de forma adecuada los módulos propuestos:
 - [Recomendaciones para Next.js](/docs/Pre/1-Next.md)
 - [Estilos CSS Recomendados](/docs/Pre/2-CSS.md)
 - [Utilizar PrismaORM](/docs/Pre/3-Prisma.md)
+- [Desplegar Proyecto](/docs/Pre/4-entorno.md)
