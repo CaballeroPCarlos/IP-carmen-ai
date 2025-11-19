@@ -26,6 +26,7 @@ export default function Home() {
                 alt="Logo del Proyecto"
                 width={180}
                 height={80}
+                loading="eager"
               />
             </div>
             <div className={style.intro}>
