@@ -138,7 +138,8 @@
     line-height: 1.4;
 }
 
-.response ul {
+.response ul,
+.response ol {
     padding: 0px 15px;
 }
 

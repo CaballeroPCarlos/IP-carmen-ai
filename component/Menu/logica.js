@@ -77,7 +77,7 @@ export default function Logica() {
     }
 
     function verificarMensaje(respuesta) {
-        const etiquetas = respuesta.match(/^###\s*(.+)$/gmi) || [];
+        const etiquetas = respuesta.match(/###\s*([^\n#]+)/gmi) || [];
         const texto = etiquetas.join(" ").toLowerCase();
 
         actuReco(0, !texto.includes("autoayudag2"));
