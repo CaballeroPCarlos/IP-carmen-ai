@@ -96,9 +96,11 @@ export default function Logica() {
     }
 
     function clearTags(texto) {
-        return texto.replace(
-            /###\s*(autoayudag2|autoayudag5|nutrición|nutricion|coach laboral|crianza)/gi,
-            "")
+        const regex = /###\s*((autoayudag2|autoayudag5|nutrición|nutricion|coach laboral|crianza)(\s*,\s*(autoayudag2|autoayudag5|nutrición|nutricion|coach laboral|crianza))*)/gi;
+
+        return texto
+            .replace(regex, "")          // elimina las etiquetas
+            .replace(/\s*([.,;!?])/g, "$1") // corrige espacios antes de signos
             .trim();
     }
 
